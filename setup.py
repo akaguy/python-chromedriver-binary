@@ -51,8 +51,7 @@ class DownloadChromedriver(build_py):
                     zip_file.extract(chromedriver_bin, chromedriver_dir)
             else:
                 print("\nChromedriver already installed at {}...\n".format(chromedriver_filename))
-            if not os.access(chromedriver_filename, os.X_OK):
-                os.chmod(chromedriver_filename, 0o744)
+            os.chmod(chromedriver_filename, 0o777)
         build_py.run(self)
 
 
